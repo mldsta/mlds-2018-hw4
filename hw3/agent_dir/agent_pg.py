@@ -1,4 +1,25 @@
 from agent_dir.agent import Agent
+import scipy
+import numpy as np
+
+def prepro(o,image_size=[80,80]):
+    """
+    Call this function to preprocess RGB image to grayscale image if necessary
+    This preprocessing code is from
+        https://github.com/hiwonjoon/tf-a3c-gpu/blob/master/async_agent.py
+    
+    Input: 
+    RGB image: np.array
+        RGB screen of game, shape: (210, 160, 3)
+    Default return: np.array 
+        Grayscale image, shape: (80, 80, 1)
+    
+    """
+    y = 0.2126 * o[:, :, 0] + 0.7152 * o[:, :, 1] + 0.0722 * o[:, :, 2]
+    y = y.astype(np.uint8)
+    resized = scipy.misc.imresize(y, image_size)
+    return np.expand_dims(resized.astype(np.float32),axis=2)
+
 
 class Agent_PG(Agent):
     def __init__(self, env, args):

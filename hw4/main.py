@@ -10,7 +10,7 @@ from environment import Environment
 
 
 def parse():
-    parser = argparse.ArgumentParser(description="MLDS 2018 HW3")
+    parser = argparse.ArgumentParser(description="MLDS 2018 HW4")
     parser.add_argument('--env_name', default=None, help='environment name')
     parser.add_argument('--train_pg', action='store_true', help='whether train policy gradient')
     parser.add_argument('--train_dqn', action='store_true', help='whether train DQN')

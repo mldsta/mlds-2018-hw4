@@ -12,11 +12,9 @@ from environment import Environment
 seed = 11037
 
 def parse():
-    parser = argparse.ArgumentParser(description="MLDS&ADL HW3")
+    parser = argparse.ArgumentParser(description="MLDS 2018 HW4")
     parser.add_argument('--test_pg', action='store_true', help='whether test policy gradient')
     parser.add_argument('--test_dqn', action='store_true', help='whether test DQN')
-    parser.add_argument('--video_dir', default=None, help='output video directory')
-    parser.add_argument('--do_render', action='store_true', help='whether render environment')
     try:
         from argument import add_arguments
         parser = add_arguments(parser)

@@ -18,12 +18,7 @@ class Environment(object):
 
         self.action_space = self.env.action_space
         self.observation_space = self.env.observation_space
-
-        self.do_render = args.do_render
-
-        if args.video_dir:
-            self.env = gym.wrappers.Monitor(self.env, args.video_dir, force=True)
-
+        
     def seed(self, seed):
         '''
         Control the randomness of the environment

@@ -15,7 +15,6 @@ def prepro(o,image_size=[80,80]):
         Grayscale image, shape: (80, 80, 1)
     
     """
-    y = 0.2126 * o[:, :, 0] + 0.7152 * o[:, :, 1] + 0.0722 * o[:, :, 2]
     y = y.astype(np.uint8)
     resized = scipy.misc.imresize(y, image_size)
     return np.expand_dims(resized.astype(np.float32),axis=2)
